@@ -8,17 +8,22 @@
     "build": "tsc",
     "test": "tsc && jest"
   },
-  "keywords": ["pindo", "sms", "api", "typescript"],
-  "author": "Your Name",
+  "keywords": [
+    "pindo",
+    "sms",
+    "api",
+    "typescript"
+  ],
+  "author": "Ishimwe Yvan",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/pindo-sms.git"
+    "url": "git+https://github.com/yvan99/pindo-sms.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/pindo-sms/issues"
+    "url": "https://github.com/yvan99/pindo-sms/issues"
   },
-  "homepage": "https://github.com/your-username/pindo-sms#readme",
+  "homepage": "https://github.com/yvan99/pindo-sms#readme",
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.11",
