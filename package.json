@@ -1,0 +1,29 @@
+{
+  "name": "pindo-sms",
+  "version": "1.0.1",
+  "description": "A lightweight npm package to easily send SMS messages using the Pindo API.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && jest"
+  },
+  "keywords": ["pindo", "sms", "api", "typescript"],
+  "author": "Your Name",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/pindo-sms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/pindo-sms/issues"
+  },
+  "homepage": "https://github.com/your-username/pindo-sms#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.11",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.3",
+    "typescript": "^5.5.3"
+  }
+}
