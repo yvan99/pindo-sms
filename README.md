@@ -18,7 +18,7 @@ import { PindoSMS, SMSPayload } from 'pindo-sms';
 const pindoSMS = new PindoSMS('your-api-token');
 
 const payload = {
-  to: '+250781234567',
+  to: '+25078******',
   text: 'Hello from Pindo',
   sender: 'Pindo',
 };
@@ -26,60 +26,7 @@ const payload = {
 pindoSMS.sendSMS(payload)
   .then(response => console.log(response))
   .catch(error => console.error(error));
-```
-
-### Reactjs
-
-```
-import React, { useState } from 'react';
-
-const SendSMS: React.FC = () => {
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('');
-
-  const handleSend = async () => {
-    try {
-      const response = await fetch('/api/send-sms', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ to: phone, text: message }),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        setStatus('SMS sent successfully');
-      } else {
-        setStatus(`Error: ${data.error}`);
-      }
-    } catch (error) {
-      setStatus(`Error: ${error.message}`);
-    }
-  };
-
-  return (
-    <div>
-      <input
-        type="text"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        placeholder="Phone number"
-      />
-      <textarea
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Message"
-      />
-      <button onClick={handleSend}>Send SMS</button>
-      <p>{status}</p>
-    </div>
-  );
-};
-
-export default SendSMS;
-```
+```=
 
 ### Next.js
 
@@ -91,7 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const pindoSMS = new PindoSMS('your-api-token');
 
   const payload: SMSPayload = {
-    to: '+250781234567',
+    to: '+25078******',
     text: 'Hello from Pindo',
     sender: 'Pindo',
   };
