@@ -34,11 +34,11 @@ yarn add pindo-sms
 
 ### Setting Up
 
-#### Node.js
+#### Node.js / NestJS
 ```javascript
 const { PindoSMS } = require('pindo-sms');
 
-const token = 'YOUR_API_TOKEN';
+const token = process.env.PINDO_API_TOKEN;
 const pindoSMS = new PindoSMS(token);
 ```
 
@@ -46,19 +46,19 @@ const pindoSMS = new PindoSMS(token);
 ```javascript
 import { PindoSMS } from 'pindo-sms';
 
-const token = 'YOUR_API_TOKEN';
+const token = process.env.PINDO_API_TOKEN;
 const pindoSMS = new PindoSMS(token);
 ```
 
-#### React
-In a React project, you can set up PindoSMS in a similar way to Node.js or ES6 Modules.
+#### React / Next.js
+In a React or Next.js project, you can set up PindoSMS in a similar way to Node.js or ES6 Modules.
 
 ```javascript
 import React from 'react';
 import { PindoSMS } from 'pindo-sms';
 
 const App = () => {
-    const token = 'YOUR_API_TOKEN';
+    const token = process.env.PINDO_API_TOKEN;
     const pindoSMS = new PindoSMS(token);
 
     // Use pindoSMS methods as needed
@@ -107,10 +107,9 @@ export default {
 };
 ```
 
-### Methods
+### Methods and Examples
 
-#### Node.js
-- **send sms method**
+#### Sending an SMS
 ```javascript
 const payload = {
     to: 'recipient_phone_number',
@@ -123,7 +122,7 @@ pindoSMS.sendSMS(payload)
     .catch(error => console.error(error));
 ```
 
-- **send bulk sms**
+#### Sending Bulk SMS
 ```javascript
 const bulkPayload = {
     messages: [
@@ -138,7 +137,7 @@ pindoSMS.sendBulkSMS(bulkPayload)
     .catch(error => console.error(error));
 ```
 
-- **create senderId**
+#### Creating a Sender ID
 ```javascript
 const senderID = 'YourSenderID';
 const countries = ['Country1', 'Country2'];
@@ -148,41 +147,27 @@ pindoSMS.createSenderID(senderID, countries)
     .catch(error => console.error(error));
 ```
 
-#### VueJS
-- **send sms method**
+#### Getting Sender IDs
 ```javascript
-const payload = {
-    to: 'recipient_phone_number',
-    text: 'Your message here',
-    sender: 'YourSenderID',
-};
-
-this.pindoSMS.sendSMS(payload)
+pindoSMS.getSenderIDs()
     .then(response => console.log(response))
     .catch(error => console.error(error));
 ```
 
-- **send bulk sms**
+#### Getting User Details
 ```javascript
-const bulkPayload = {
-    messages: [
-        { to: 'recipient_phone_number1', text: 'Message 1', sender: 'YourSenderID' },
-        { to: 'recipient_phone_number2', text: 'Message 2', sender: 'YourSenderID' },
-        // Add more messages as needed
-    ],
-};
-
-this.pindoSMS.sendBulkSMS(bulkPayload)
+pindoSMS.getUserDetails()
     .then(response => console.log(response))
     .catch(error => console.error(error));
 ```
 
-- **create senderId**
+#### Getting Analytics
 ```javascript
-const senderID = 'YourSenderID';
-const countries = ['Country1', 'Country2'];
+const timezoneOffset = -120;
+const start = '2023-01-01';
+const timeframe = '30d';
 
-this.pindoSMS.createSenderID(senderID, countries)
+pindoSMS.getAnalytics(timezoneOffset, start, timeframe)
     .then(response => console.log(response))
     .catch(error => console.error(error));
 ```
@@ -199,6 +184,14 @@ this.pindoSMS.createSenderID(senderID, countries)
 
 ## Configuration
 You need an API token from Pindo to use this SDK. You can set the token and base URL during the initialization of the `PindoSMS` class.
+
+To get an API token:
+1. Sign up at [Pindo](https://app.pindo.io/login)
+2. Retrieve your token from [Pindo Security Settings](https://app.pindo.io/account?tab=security)
+3. Store the token in your `.env` file as follows:
+```plaintext
+PINDO_API_TOKEN=your_api_token
+```
 
 ## Documentation
 For more detailed documentation, visit the [Pindo API documentation](https://api.pindo.io).
