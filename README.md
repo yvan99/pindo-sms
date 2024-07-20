@@ -109,7 +109,8 @@ export default {
 
 ### Methods
 
-#### Sending an SMS
+#### Node.js
+- **send sms method**
 ```javascript
 const payload = {
     to: 'recipient_phone_number',
@@ -122,7 +123,7 @@ pindoSMS.sendSMS(payload)
     .catch(error => console.error(error));
 ```
 
-#### Sending Bulk SMS
+- **send bulk sms**
 ```javascript
 const bulkPayload = {
     messages: [
@@ -137,7 +138,7 @@ pindoSMS.sendBulkSMS(bulkPayload)
     .catch(error => console.error(error));
 ```
 
-#### Creating a Sender ID
+- **create senderId**
 ```javascript
 const senderID = 'YourSenderID';
 const countries = ['Country1', 'Country2'];
@@ -147,27 +148,41 @@ pindoSMS.createSenderID(senderID, countries)
     .catch(error => console.error(error));
 ```
 
-#### Getting Sender IDs
+#### VueJS
+- **send sms method**
 ```javascript
-pindoSMS.getSenderIDs()
+const payload = {
+    to: 'recipient_phone_number',
+    text: 'Your message here',
+    sender: 'YourSenderID',
+};
+
+this.pindoSMS.sendSMS(payload)
     .then(response => console.log(response))
     .catch(error => console.error(error));
 ```
 
-#### Getting User Details
+- **send bulk sms**
 ```javascript
-pindoSMS.getUserDetails()
+const bulkPayload = {
+    messages: [
+        { to: 'recipient_phone_number1', text: 'Message 1', sender: 'YourSenderID' },
+        { to: 'recipient_phone_number2', text: 'Message 2', sender: 'YourSenderID' },
+        // Add more messages as needed
+    ],
+};
+
+this.pindoSMS.sendBulkSMS(bulkPayload)
     .then(response => console.log(response))
     .catch(error => console.error(error));
 ```
 
-#### Getting Analytics
+- **create senderId**
 ```javascript
-const timezoneOffset = -120;
-const start = '2023-01-01';
-const timeframe = '30d';
+const senderID = 'YourSenderID';
+const countries = ['Country1', 'Country2'];
 
-pindoSMS.getAnalytics(timezoneOffset, start, timeframe)
+this.pindoSMS.createSenderID(senderID, countries)
     .then(response => console.log(response))
     .catch(error => console.error(error));
 ```
